@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    title: 'Territorial Intelligence Dashboard',
+    status: 'Concept',
+    text: 'A decision-support dashboard concept for monitoring urban growth, infrastructure needs, and territorial indicators.'
+  },
+  {
+    title: 'Remote Sensing Urban Change Monitor',
+    status: 'Research',
+    text: 'A geospatial workflow for detecting land-use change and environmental pressure from satellite imagery.'
+  },
+  {
+    title: 'Smart City Governance Notes',
+    status: 'Writing',
+    text: 'A structured knowledge base on smart city implementation, governance models, and Moroccan urban priorities.'
+  }
+];
+---
+
+<BaseLayout
+  title="Projects | Saad Boukhrouf"
+  description="Selected projects by Saad Boukhrouf around AI, smart cities, remote sensing, and territorial innovation."
+>
+  <section class="section page">
+    <p class="eyebrow">Projects</p>
+    <h1>Selected work and research directions.</h1>
+    <p class="lead">
+      A focused portfolio of engineering and research-oriented initiatives around
+      cities, data, and territorial resilience.
+    </p>
+  </section>
+
+  <section class="band">
+    <div class="section grid">
+      {
+        projects.map((project) => (
+          <article class="card">
+            <div class="meta"><span>{project.status}</span></div>
+            <h3>{project.title}</h3>
+            <p>{project.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

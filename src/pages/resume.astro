@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const experience = [
+  {
+    period: 'Current',
+    title: 'Engineering & Research Focus',
+    text: 'AI, smart city systems, territorial governance, remote sensing, and resilient urban development.'
+  },
+  {
+    period: 'Selected skills',
+    title: 'Technical Direction',
+    text: 'Urban analytics, geospatial reasoning, digital transformation, data-informed planning, and applied AI concepts.'
+  },
+  {
+    period: 'Context',
+    title: 'Morocco and Territorial Development',
+    text: 'Interest in practical tools and evidence systems that help Moroccan territories plan, coordinate, and adapt.'
+  }
+];
+---
+
+<BaseLayout
+  title="Resume | Saad Boukhrouf"
+  description="Resume of Saad Boukhrouf, engineer focused on AI, urban innovation, smart cities, territorial governance, remote sensing, and resilient development."
+>
+  <section class="section page">
+    <p class="eyebrow">Resume</p>
+    <h1>Professional profile.</h1>
+    <p class="lead">
+      A concise overview for collaborators, institutions, research partners, and
+      technology teams.
+    </p>
+  </section>
+
+  <section class="band">
+    <div class="section resume-list">
+      {
+        experience.map((item) => (
+          <article class="resume-item">
+            <div class="label">{item.period}</div>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

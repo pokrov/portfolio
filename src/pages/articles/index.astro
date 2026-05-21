@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articles = (await getCollection('articles')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout
+  title="Articles | Saad Boukhrouf"
+  description="Articles by Saad Boukhrouf on AI, smart cities, remote sensing, territorial governance, and resilient urban development."
+>
+  <section class="section page">
+    <p class="eyebrow">Articles</p>
+    <h1>Notes on cities, AI, and territorial resilience.</h1>
+    <p class="lead">
+      Short research notes and professional reflections stored as Markdown files.
+    </p>
+  </section>
+
+  <section class="band">
+    <div class="section article-list">
+      {
+        articles.map((article) => (
+          <article class="article-card">
+            <div class="meta">
+              <time datetime={article.data.date.toISOString()}>
+                {article.data.date.toLocaleDateString('en', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </div>
+            <h2><a href={`/articles/${article.slug}/`}>{article.data.title}</a></h2>
+            <p>{article.data.excerpt}</p>
+            <div class="tags" aria-label="Article tags">
+              {article.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

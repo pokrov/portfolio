@@ -1,0 +1,58 @@
+---
+import { navItems, site } from '../data/site';
+import '../styles/global.css';
+
+type Props = {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogType?: 'website' | 'article';
+};
+
+const {
+  title = site.title,
+  description = site.description,
+  canonical = new URL(Astro.url.pathname, site.url).toString(),
+  ogType = 'website'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={site.locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label={`${site.name} home`}>
+        <span class="brand-mark">SB</span>
+        <span>{site.name}</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>{site.name} · Engineer focused on AI, cities, and territorial resilience.</p>
+      <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+    </footer>
+  </body>
+</html>
