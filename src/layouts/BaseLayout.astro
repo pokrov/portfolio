@@ -35,12 +35,13 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="/" aria-label={`${site.name} home`}>
-        <span class="brand-mark">SB</span>
+        <img class="brand-logo" src="/logo.png" alt="" width="44" height="44" />
         <span>{site.name}</span>
       </a>
       <nav class="site-nav" aria-label="Main navigation">
@@ -51,7 +52,7 @@ const {
       <slot />
     </main>
     <footer class="site-footer">
-      <p>{site.name} · Engineer focused on AI, cities, and territorial resilience.</p>
+      <p>{site.name} - Engineer focused on AI, cities, and territorial resilience.</p>
       <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
     </footer>
   </body>
