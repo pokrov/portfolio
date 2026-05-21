@@ -5,7 +5,7 @@ export const site = {
     'Professional portfolio of Saad Boukhrouf, an engineer interested in AI, urban innovation, smart cities, territorial governance, remote sensing, and resilient urban development in Morocco.',
   url: 'https://saad-boukhrouf.netlify.app',
   locale: 'en_US',
-  email: 'contact@saadboukhrouf.com',
+  email: 'boukhrouf.saad@gmail.com',
   location: 'Morocco'
 };
 
