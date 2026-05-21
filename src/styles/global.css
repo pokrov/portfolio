@@ -231,6 +231,34 @@ h3 {
   text-decoration: none;
 }
 
+.article-thumb {
+  display: block;
+  margin: -22px -22px 18px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.article-thumb img,
+.article-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.article-thumb img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.article-hero-image {
+  margin: 28px 0 36px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
 .page {
   padding: 48px 0 72px;
 }

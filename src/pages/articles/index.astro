@@ -24,6 +24,13 @@ const articles = (await getCollection('articles')).sort(
       {
         articles.map((article) => (
           <article class="article-card">
+            {
+              article.data.image && (
+                <a class="article-thumb" href={`/articles/${article.slug}/`} aria-label={article.data.title}>
+                  <img src={article.data.image.src} alt={article.data.image.alt} loading="lazy" />
+                </a>
+              )
+            }
             <div class="meta">
               <time datetime={article.data.date.toISOString()}>
                 {article.data.date.toLocaleDateString('en', {

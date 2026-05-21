@@ -37,6 +37,13 @@ const canonical = new URL(`/articles/${article.slug}/`, site.url).toString();
     <div class="tags" aria-label="Article tags">
       {article.data.tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>
+    {
+      article.data.image && (
+        <figure class="article-hero-image">
+          <img src={article.data.image.src} alt={article.data.image.alt} />
+        </figure>
+      )
+    }
     <Content />
   </article>
 </BaseLayout>
