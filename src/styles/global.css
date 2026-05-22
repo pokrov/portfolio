@@ -89,7 +89,45 @@ a:hover {
 }
 
 .hero {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 82px);
   padding: 76px 0 52px;
+}
+
+.hero-portrait {
+  position: relative;
+  margin: 0;
+  max-width: 380px;
+}
+
+.hero-portrait::before {
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  z-index: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-subtle);
+  content: "";
+}
+
+.hero-portrait img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 18px 44px rgba(27, 31, 35, 0.14);
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.hero-copy {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -327,7 +365,17 @@ h3 {
   }
 
   .hero {
+    grid-template-columns: 1fr;
+    gap: 34px;
     padding-top: 48px;
+  }
+
+  .hero-portrait {
+    width: min(78vw, 340px);
+  }
+
+  .hero-copy {
+    order: -1;
   }
 
   .grid,
