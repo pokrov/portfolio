@@ -4,3 +4,4 @@ dist/
 .npm-cache/
 .netlify/
 /logo.png
+/logo.ico
